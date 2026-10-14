@@ -1,0 +1,133 @@
+{
+  "metrics": {
+    "accuracy": 0.8885483870967742,
+    "precision": 0.901774839046459,
+    "recall": 0.86375,
+    "f1_score": 0.8823529411764706,
+    "roc_auc": 0.9586855826822916
+  },
+  "confusion_matrix": [
+    [
+      11671,
+      1129
+    ],
+    [
+      1635,
+      10365
+    ]
+  ],
+  "classification_report": "              precision    recall  f1-score   support\n\n  legitimate       0.88      0.91      0.89     12800\n    phishing       0.90      0.86      0.88     12000\n\n    accuracy                           0.89     24800\n   macro avg       0.89      0.89      0.89     24800\nweighted avg       0.89      0.89      0.89     24800\n",
+  "feature_importance": [
+    [
+      "tld_length",
+      0.1418490275158848
+    ],
+    [
+      "has_suspicious_keyword",
+      0.12183079632177034
+    ],
+    [
+      "num_digits",
+      0.08243844702513976
+    ],
+    [
+      "num_dots",
+      0.06631345878720347
+    ],
+    [
+      "url_length",
+      0.0650794210839116
+    ],
+    [
+      "url_entropy",
+      0.061981513429922114
+    ],
+    [
+      "path_length",
+      0.05976203922191943
+    ],
+    [
+      "num_hyphens",
+      0.05887985097711342
+    ],
+    [
+      "num_slashes",
+      0.05298936644221896
+    ],
+    [
+      "digit_ratio",
+      0.05242471374663401
+    ],
+    [
+      "hostname_entropy",
+      0.049291313257218645
+    ],
+    [
+      "host_length",
+      0.04591290104547464
+    ],
+    [
+      "path_depth",
+      0.0336519534018391
+    ],
+    [
+      "num_subdomains",
+      0.025436003305571005
+    ],
+    [
+      "num_underscores",
+      0.02543397983577164
+    ],
+    [
+      "num_equal_signs",
+      0.017674269442129777
+    ],
+    [
+      "has_www_prefix",
+      0.01084123267008839
+    ],
+    [
+      "num_question_marks",
+      0.0107283341297547
+    ],
+    [
+      "num_ampersands",
+      0.006736934394668667
+    ],
+    [
+      "brand_like_subdomain",
+      0.002940071057400305
+    ],
+    [
+      "num_percent",
+      0.0023508965317237916
+    ],
+    [
+      "uses_https",
+      0.0020462404394749538
+    ],
+    [
+      "num_at_symbols",
+      0.0014817245066420515
+    ],
+    [
+      "is_shortened",
+      0.0011899140259190534
+    ],
+    [
+      "has_port",
+      0.0004380008760290797
+    ],
+    [
+      "double_slash_in_path",
+      0.00029759652857623526
+    ],
+    [
+      "has_ip_address",
+      0.0
+    ]
+  ],
+  "train_size": 99200,
+  "test_size": 24800,
+  "sample_size_used": 124000
+}

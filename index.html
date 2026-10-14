@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PhishGuard - Phishing Website Checker</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <div class="brand">PhishGuard</div>
+    <div class="tagline">Phishing website checker</div>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Is this link safe?</h1>
+  <p class="lead">Paste a website link below. The checker tells you whether it looks like a phishing website or a legitimate one.</p>
+
+  <section class="card">
+    <form id="scan-form" autocomplete="off">
+      <label for="url-input">Website link</label>
+      <div class="row">
+        <input id="url-input" type="text" placeholder="https://example.com" spellcheck="false" maxlength="2048">
+        <button id="scan-btn" type="submit">Check link</button>
+      </div>
+    </form>
+    <div class="examples">
+      <span>Try an example:</span>
+      <button class="chip" data-url="https://www.wikipedia.org">Wikipedia</button>
+      <button class="chip" data-url="http://192.168.4.12/wp-login/verify">Link with IP address</button>
+      <button class="chip" data-url="http://secure-paypal-update.account-verify.info/confirm">Lookalike domain</button>
+      <button class="chip" data-url="http://bit.ly/3xKq9zT">Shortened link</button>
+    </div>
+  </section>
+
+  <div id="error" class="notice hidden"></div>
+
+  <section id="result" class="hidden">
+    <div id="verdict" class="verdict">
+      <div class="small">Result</div>
+      <div id="verdict-title" class="verdict-title"></div>
+      <p id="verdict-text"></p>
+      <div id="verdict-url" class="url-box"></div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="small">Confidence</div><div id="confidence" class="stat-value"></div></div>
+      <div class="stat"><div class="small">Risk level</div><div id="risk" class="stat-value"></div></div>
+    </div>
+
+    <div id="reasons-card" class="card hidden">
+      <h2>Warning signs in this link</h2>
+      <ul id="reasons"></ul>
+    </div>
+
+    <div class="card">
+      <button id="toggle-details" class="toggle" type="button">
+        <span>Technical details</span><span id="toggle-label" class="link">Show</span>
+      </button>
+      <table id="details" class="hidden"><tbody></tbody></table>
+    </div>
+  </section>
+
+  <section class="how">
+    <h2>How it works</h2>
+    <ol>
+      <li>Check the link format</li>
+      <li>Measure 27 features of the link text</li>
+      <li>A Random Forest of {{ n_trees }} decision trees votes</li>
+      <li>Show the result</li>
+    </ol>
+    <p class="small">Measured accuracy on held-out test data: <strong>{{ accuracy }}</strong>.</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">This is a student prototype. Results are predictions, not guarantees, so do not rely on them as your only security check.</div>
+</footer>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
